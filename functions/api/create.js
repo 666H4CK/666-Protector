@@ -40,10 +40,10 @@ error:"Missing Data"
 }
 
 const githubUser =
-"TU_USUARIO";
+"666H4CK";
 
 const githubRepo =
-"TU_REPO";
+"666-Protector";
 
 const path =
 `raw-files/${name}.txt`;
@@ -126,7 +126,7 @@ return Response.json({
 success:true,
 
 raw:
-`https://TU-DOMINIO.com/loader/${name}`
+`https://666-protector.pages.dev/loader/${name}`
 
 });
 
