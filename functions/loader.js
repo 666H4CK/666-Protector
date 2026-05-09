@@ -185,8 +185,8 @@ box-shadow:0 0 40px rgba(255,0,0,0.4);
     // SCRIPT REAL
     // =========================
 
-    const githubUser = "TU_USUARIO_GITHUB";
-    const githubRepo = "TU_REPO";
+    const githubUser = "666H4CK";
+    const githubRepo = "666-Protector";
 
     const githubResponse = await fetch(
       `https://api.github.com/repos/${githubUser}/${githubRepo}/contents/raw-files/${id}.txt`,
