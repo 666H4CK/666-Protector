@@ -3,10 +3,371 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>666 PROTECTOR</title>
 
-<link rel="stylesheet" href="style.css">
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter, Arial, sans-serif;
+}
+
+body{
+background:#050505;
+overflow:hidden;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:30px;
+color:white;
+}
+
+/* FONDO */
+
+.bg{
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at top,#5c0000 0%,#050505 45%),
+radial-gradient(circle at bottom,#1a0000 0%,#000000 70%);
+animation:bgAnim 8s infinite alternate;
+}
+
+@keyframes bgAnim{
+
+from{
+transform:scale(1);
+filter:blur(0px);
+}
+
+to{
+transform:scale(1.08);
+filter:blur(5px);
+}
+
+}
+
+.particles{
+position:fixed;
+inset:0;
+background-image:
+radial-gradient(rgba(255,0,0,0.12) 1px, transparent 1px);
+background-size:35px 35px;
+opacity:0.3;
+}
+
+/* HUB */
+
+.hub{
+position:relative;
+width:900px;
+max-width:100%;
+padding:45px;
+border-radius:40px;
+
+background:rgba(10,10,10,0.78);
+
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,0,0,0.18);
+
+box-shadow:
+0 0 80px rgba(255,0,0,0.18),
+inset 0 0 30px rgba(255,0,0,0.05);
+
+animation:intro 1s cubic-bezier(.17,.89,.32,1.28);
+}
+
+@keyframes intro{
+
+from{
+opacity:0;
+transform:
+translateY(90px)
+scale(0.8);
+}
+
+to{
+opacity:1;
+transform:
+translateY(0px)
+scale(1);
+}
+
+}
+
+/* GLOW */
+
+.topGlow{
+position:absolute;
+width:350px;
+height:350px;
+background:red;
+border-radius:50%;
+filter:blur(170px);
+opacity:0.25;
+left:50%;
+top:-180px;
+transform:translateX(-50%);
+}
+
+/* TITULO */
+
+.logo{
+width:120px;
+height:120px;
+margin:auto;
+margin-bottom:25px;
+border-radius:50%;
+
+background:
+linear-gradient(145deg,#ff0000,#5c0000);
+
+box-shadow:
+0 0 50px rgba(255,0,0,0.55),
+inset 0 0 20px rgba(255,255,255,0.12);
+
+animation:float 4s infinite ease-in-out;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-10px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+h1{
+text-align:center;
+font-size:55px;
+font-weight:900;
+letter-spacing:5px;
+color:#ff2d2d;
+
+text-shadow:
+0 0 25px rgba(255,0,0,0.8);
+}
+
+.sub{
+text-align:center;
+margin-top:12px;
+margin-bottom:35px;
+font-size:17px;
+color:#9f9f9f;
+}
+
+/* INPUTS */
+
+.section{
+margin-bottom:25px;
+}
+
+.section label{
+display:block;
+margin-bottom:10px;
+font-size:14px;
+color:#ff5252;
+letter-spacing:1px;
+}
+
+.section input,
+.section textarea{
+
+width:100%;
+
+background:
+rgba(255,255,255,0.03);
+
+border:
+1px solid rgba(255,0,0,0.15);
+
+outline:none;
+
+color:white;
+
+padding:20px;
+
+border-radius:25px;
+
+font-size:15px;
+
+transition:0.3s;
+
+box-shadow:
+inset 0 0 20px rgba(255,0,0,0.04);
+
+}
+
+.section input:focus,
+.section textarea:focus{
+
+transform:translateY(-2px);
+
+border-color:#ff0000;
+
+box-shadow:
+0 0 30px rgba(255,0,0,0.18),
+inset 0 0 20px rgba(255,0,0,0.08);
+
+}
+
+.section textarea{
+height:320px;
+resize:none;
+}
+
+/* UPLOAD */
+
+.uploadBox{
+margin-bottom:25px;
+}
+
+.uploadBox input{
+display:none;
+}
+
+.uploadBox label{
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+height:75px;
+
+border-radius:25px;
+
+background:
+rgba(255,255,255,0.03);
+
+border:
+1px solid rgba(255,0,0,0.15);
+
+cursor:pointer;
+
+transition:0.3s;
+
+font-weight:700;
+letter-spacing:2px;
+
+}
+
+.uploadBox label:hover{
+
+transform:translateY(-3px);
+
+background:
+rgba(255,0,0,0.08);
+
+box-shadow:
+0 0 35px rgba(255,0,0,0.15);
+
+}
+
+/* BOTON */
+
+button{
+
+width:100%;
+height:78px;
+
+border:none;
+
+border-radius:28px;
+
+background:
+linear-gradient(145deg,#ff0000,#660000);
+
+color:white;
+
+font-size:18px;
+font-weight:800;
+letter-spacing:2px;
+
+cursor:pointer;
+
+transition:0.35s;
+
+box-shadow:
+0 0 40px rgba(255,0,0,0.25),
+inset 0 0 15px rgba(255,255,255,0.08);
+
+}
+
+button:hover{
+
+transform:
+translateY(-4px)
+scale(1.01);
+
+box-shadow:
+0 0 70px rgba(255,0,0,0.45);
+
+}
+
+/* RESULT */
+
+#result{
+margin-top:30px;
+}
+
+.resultBox{
+
+background:
+rgba(255,255,255,0.03);
+
+padding:25px;
+
+border-radius:30px;
+
+border:
+1px solid rgba(255,0,0,0.15);
+
+box-shadow:
+inset 0 0 25px rgba(255,0,0,0.05);
+
+}
+
+.resultBox h3{
+margin-bottom:15px;
+color:#ff2d2d;
+letter-spacing:2px;
+}
+
+.resultBox textarea{
+
+width:100%;
+height:120px;
+
+background:#0a0a0a;
+
+border:none;
+
+border-radius:22px;
+
+padding:18px;
+
+color:white;
+
+resize:none;
+
+}
+
+</style>
 </head>
+
 <body>
 
 <div class="bg"></div>
@@ -14,44 +375,137 @@
 
 <div class="hub">
 
-    <div class="topGlow"></div>
+<div class="topGlow"></div>
 
-    <div class="logoBox">
-        <div class="logoCircle"></div>
-        <h1>666 PROTECTOR</h1>
-        <p>Protect your Lua scripts in style.</p>
-    </div>
+<div class="logo"></div>
 
-    <div class="section">
-        <label>Script Name</label>
-        <input maxlength="15" id="scriptName" placeholder="MyScript">
-    </div>
+<h1>666 PROTECTOR</h1>
 
-    <div class="section">
-        <label>Lua Script</label>
+<p class="sub">
+Protect and host your Lua scripts.
+</p>
 
-        <textarea
-        id="scriptContent"
-        placeholder="Escribe tu codigo Lua aqui!"
-        ></textarea>
-    </div>
+<div class="section">
 
-    <div class="uploadBox">
-        <input type="file" id="fileInput" accept=".txt">
+<label>Script Name</label>
 
-        <label for="fileInput">
-            <span>UPLOAD TXT FILE</span>
-        </label>
-    </div>
-
-    <button id="createBtn">
-        CREATE SCRIPT
-    </button>
-
-    <div id="result"></div>
+<input
+maxlength="15"
+id="scriptName"
+placeholder="MyScript"
+>
 
 </div>
 
-<script src="script.js"></script>
+<div class="section">
+
+<label>Lua Script</label>
+
+<textarea
+id="scriptContent"
+placeholder="Escribe tu codigo Lua aqui!"
+></textarea>
+
+</div>
+
+<div class="uploadBox">
+
+<input
+type="file"
+id="fileInput"
+accept=".txt"
+>
+
+<label for="fileInput">
+UPLOAD TXT FILE
+</label>
+
+</div>
+
+<button id="createBtn">
+CREATE SCRIPT
+</button>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+const fileInput =
+document.getElementById("fileInput");
+
+const scriptContent =
+document.getElementById("scriptContent");
+
+const createBtn =
+document.getElementById("createBtn");
+
+const result =
+document.getElementById("result");
+
+/* SUBIR TXT */
+
+fileInput.addEventListener(
+"change",
+async (e)=>{
+
+const file = e.target.files[0];
+
+if(!file) return;
+
+const text = await file.text();
+
+scriptContent.value = text;
+
+});
+
+/* CREAR */
+
+createBtn.addEventListener(
+"click",
+async ()=>{
+
+const name =
+document.getElementById("scriptName")
+.value
+.trim();
+
+const content =
+scriptContent.value;
+
+if(!name){
+alert("Pon nombre");
+return;
+}
+
+if(!content){
+alert("Pon script");
+return;
+}
+
+/* FAKE GENERADOR */
+
+const raw =
+`https://666-protector.com/api/loader?id=${name}`;
+
+result.innerHTML = `
+
+<div class="resultBox">
+
+<h3>LOADSTRING GENERATED</h3>
+
+<textarea readonly>
+loadstring(game:HttpGet("${raw}"))()
+</textarea>
+
+</div>
+
+`;
+
+});
+
+</script>
+
 </body>
 </html>
