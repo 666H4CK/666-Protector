@@ -15,8 +15,8 @@ export async function onRequestPost(context) {
             });
         }
 
-        const githubUser = "TU_USUARIO_GITHUB";
-        const githubRepo = "TU_REPO";
+        const githubUser = "666H4CK";
+        const githubRepo = "666-Protector";
 
         const path = `raw-files/${name}.txt`;
 
