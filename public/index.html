@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>666 PROTECTOR</title>
+
+<style>
+
+:root{
+--bg:#050505;
+--panel:rgba(12,12,12,.82);
+--panel2:rgba(255,255,255,.03);
+--line:rgba(255,0,0,.14);
+--line2:rgba(255,0,0,.28);
+--red:#ff2020;
+--muted:#9d9d9d;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,Arial,sans-serif;
+}
+
+body{
+min-height:100vh;
+background:#050505;
+overflow-x:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:25px;
+color:white;
+}
+
+.bg{
+position:fixed;
+inset:0;
+
+background:
+radial-gradient(circle at top,#420000 0%,#050505 45%),
+radial-gradient(circle at bottom,#180000 0%,#000000 70%);
+
+animation:bgMove 8s infinite alternate;
+}
+
+@keyframes bgMove{
+
+from{
+transform:scale(1);
+}
+
+to{
+transform:scale(1.08);
+}
+
+}
+
+.grid{
+position:fixed;
+inset:0;
+
+background-image:
+radial-gradient(rgba(255,0,0,0.10) 1px, transparent 1px);
+
+background-size:28px 28px;
+
+opacity:.3;
+}
+
+.hub{
+
+position:relative;
+
+width:1000px;
+max-width:100%;
+
+padding:35px;
+
+border-radius:42px;
+
+background:var(--panel);
+
+border:1px solid rgba(255,0,0,.12);
+
+backdrop-filter:blur(18px);
+
+box-shadow:
+0 0 70px rgba(255,0,0,.18),
+inset 0 0 35px rgba(255,0,0,.04);
+
+animation:intro .9s cubic-bezier(.17,.89,.32,1.28);
+
+overflow:hidden;
+}
+
+@keyframes intro{
+
+from{
+opacity:0;
+transform:
+translateY(70px)
+scale(.85);
+}
+
+to{
+opacity:1;
+transform:
+translateY(0px)
+scale(1);
+}
+
+}
+
+.glow{
+
+position:absolute;
+
+width:350px;
+height:350px;
+
+background:red;
+
+filter:blur(160px);
+
+opacity:.20;
+
+top:-180px;
+left:50%;
+
+transform:translateX(-50%);
+}
+
+.top{
+
+text-align:center;
+
+margin-bottom:35px;
+}
+
+.logo{
+
+width:110px;
+height:110px;
+
+margin:auto;
+margin-bottom:20px;
+
+border-radius:34px;
+
+background:
+linear-gradient(145deg,#ff0000,#650000);
+
+box-shadow:
+0 0 45px rgba(255,0,0,.45),
+inset 0 0 18px rgba(255,255,255,.08);
+
+animation:float 4s infinite ease-in-out;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-10px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+h1{
+
+font-size:55px;
+
+letter-spacing:6px;
+
+font-weight:900;
+
+color:#ff2d2d;
+
+text-shadow:
+0 0 25px rgba(255,0,0,.7);
+
+}
+
+.sub{
+
+margin-top:12px;
+
+font-size:16px;
+
+color:var(--muted);
+}
+
+.layout{
+
+display:grid;
+
+grid-template-columns:
+1fr 340px;
+
+gap:22px;
+}
+
+@media(max-width:900px){
+
+.layout{
+grid-template-columns:1fr;
+}
+
+}
+
+.left,
+.right{
+
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.card{
+
+background:var(--panel2);
+
+border:1px solid var(--line);
+
+border-radius:28px;
+
+padding:22px;
+
+box-shadow:
+inset 0 0 18px rgba(255,0,0,.04);
+
+}
+
+.label{
+
+margin-bottom:12px;
+
+font-size:13px;
+
+letter-spacing:1px;
+
+color:#ff4d4d;
+}
+
+.input,
+.textarea{
+
+width:100%;
+
+background:
+rgba(255,255,255,.03);
+
+border:
+1px solid rgba(255,0,0,.12);
+
+outline:none;
+
+color:white;
+
+transition:.25s;
+
+}
+
+.input{
+
+height:60px;
+
+padding:0 18px;
+
+border-radius:20px;
+
+font-size:15px;
+}
+
+.textarea{
+
+height:340px;
+
+padding:18px;
+
+border-radius:24px;
+
+resize:none;
+
+font-size:14px;
+
+line-height:1.5;
+}
+
+.input:focus,
+.textarea:focus{
+
+transform:translateY(-2px);
+
+border-color:
+rgba(255,0,0,.35);
+
+box-shadow:
+0 0 25px rgba(255,0,0,.15);
+
+}
+
+.upload{
+
+height:65px;
+
+border-radius:22px;
+
+display:flex;
+
+justify-content:center;
+align-items:center;
+
+cursor:pointer;
+
+font-weight:800;
+
+letter-spacing:2px;
+
+background:
+rgba(255,255,255,.03);
+
+border:
+1px solid rgba(255,0,0,.12);
+
+transition:.25s;
+}
+
+.upload:hover{
+
+transform:translateY(-3px);
+
+background:
+rgba(255,0,0,.06);
+
+box-shadow:
+0 0 30px rgba(255,0,0,.12);
+
+}
+
+#fileInput{
+display:none;
+}
+
+button{
+
+height:72px;
+
+border:none;
+
+border-radius:26px;
+
+background:
+linear-gradient(145deg,#ff0000,#650000);
+
+color:white;
+
+font-size:17px;
+
+font-weight:900;
+
+letter-spacing:2px;
+
+cursor:pointer;
+
+transition:.3s;
+
+box-shadow:
+0 0 35px rgba(255,0,0,.24);
+
+}
+
+button:hover{
+
+transform:
+translateY(-4px)
+scale(1.01);
+
+box-shadow:
+0 0 55px rgba(255,0,0,.38);
+
+}
+
+.sideTitle{
+
+font-size:15px;
+
+letter-spacing:2px;
+
+color:#ff4747;
+
+margin-bottom:14px;
+}
+
+.sideText{
+
+font-size:14px;
+
+line-height:1.6;
+
+color:#a5a5a5;
+}
+
+#result textarea{
+
+width:100%;
+
+height:130px;
+
+border:none;
+
+outline:none;
+
+resize:none;
+
+padding:16px;
+
+border-radius:20px;
+
+background:#090909;
+
+color:white;
+
+font-size:13px;
+
+margin-top:14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+<div class="grid"></div>
+
+<div class="hub">
+
+<div class="glow"></div>
+
+<div class="top">
+
+<div class="logo"></div>
+
+<h1>666 PROTECTOR</h1>
+
+<p class="sub">
+Protect and host your Lua scripts.
+</p>
+
+</div>
+
+<div class="layout">
+
+<div class="left">
+
+<div class="card">
+
+<div class="label">
+SCRIPT NAME
+</div>
+
+<input
+maxlength="15"
+id="scriptName"
+class="input"
+placeholder="MyScript"
+/>
+
+</div>
+
+<div class="card">
+
+<div class="label">
+LUA SCRIPT
+</div>
+
+<textarea
+id="scriptContent"
+class="textarea"
+placeholder="Escribe tu codigo Lua aqui!"
+></textarea>
+
+</div>
+
+<div class="card">
+
+<input
+type="file"
+id="fileInput"
+accept=".txt"
+/>
+
+<label
+for="fileInput"
+class="upload"
+>
+UPLOAD TXT FILE
+</label>
+
+</div>
+
+<button id="createBtn">
+CREATE SCRIPT
+</button>
+
+</div>
+
+<div class="right">
+
+<div class="card">
+
+<div class="sideTitle">
+LOADSTRING
+</div>
+
+<div class="sideText">
+
+La ruta final será:
+
+<br><br>
+
+<code>
+/loader/nombre
+</code>
+
+</div>
+
+</div>
+
+<div
+class="card"
+id="result"
+>
+
+<div class="sideTitle">
+RESULT
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const fileInput =
+document.getElementById("fileInput");
+
+const textarea =
+document.getElementById("scriptContent");
+
+const result =
+document.getElementById("result");
+
+fileInput.addEventListener(
+"change",
+async(e)=>{
+
+const file =
+e.target.files[0];
+
+if(!file) return;
+
+textarea.value =
+await file.text();
+
+});
+
+document
+.getElementById("createBtn")
+.addEventListener(
+"click",
+async()=>{
+
+const name =
+document
+.getElementById("scriptName")
+.value
+.trim()
+.replace(/\\s+/g,"_")
+.replace(/[^a-zA-Z0-9_-]/g,"")
+.slice(0,15);
+
+const content =
+textarea.value;
+
+if(!name){
+alert("Pon nombre");
+return;
+}
+
+if(!content){
+alert("Pon script");
+return;
+}
+
+const btn =
+document.getElementById("createBtn");
+
+btn.disabled = true;
+btn.innerText = "CREATING...";
+
+try{
+
+const res =
+await fetch("/api/create",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+name,
+content
+})
+
+});
+
+const data =
+await res.json();
+
+if(!data.success){
+
+throw new Error(
+data.error || "Error"
+);
+
+}
+
+result.innerHTML = `
+
+<div class="sideTitle">
+LOADSTRING GENERATED
+</div>
+
+<textarea readonly>
+loadstring(game:HttpGet("${data.raw}"))()
+</textarea>
+
+`;
+
+}catch(err){
+
+alert(err.message);
+
+}
+
+btn.disabled = false;
+btn.innerText = "CREATE SCRIPT";
+
+});
+
+</script>
+
+</body>
+  </html>
